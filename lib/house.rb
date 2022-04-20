@@ -3,8 +3,7 @@ class House
   def line(number)
     case number
       
-      when 4
-        "This is the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
+      
       when 5
         "This is the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
       when 6
@@ -34,6 +33,8 @@ class House
       "the malt that lay in"
     when 3
       "the rat that ate"
+    when 4
+      "the cat that killed"
     end
   end
 
