@@ -7,7 +7,7 @@ class House
   def new_noun_and_verb(number)
     case number
     when 1
-      "the house that Jack built.\n"
+      "the #{noun(number)} that Jack built.\n"
     when 2
       "the malt that lay in"
     when 3
@@ -31,8 +31,12 @@ class House
     when 12
       "the horse and the hound and the horn that belonged to"
     end
-
   end
+
+  def noun(number)
+    "house"
+  end
+  
 
   def recite
     (1..12).each.map {|n| line(n)}.join("\n")
