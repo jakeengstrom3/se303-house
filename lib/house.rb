@@ -5,43 +5,23 @@ class House
   end
 
   def new_noun_and_verb(number)
-    case number
-    
-    when 3
-      "the rat that ate"
-    when 4
-      "the cat that killed"
-    when 5
-      "the dog that worried"
-    when 6
-      "the cow with the crumpled horn that tossed"
-    when 7
-      "the maiden all forlorn that milked"
-    when 8
-      "the man all tattered and torn that kissed"
-    when 9
-      "the priest all shaven and shorn that married"
-    when 10
-      "the rooster that crowed in the morn that woke"
-    when 11
-      "the farmer sowing his corn that kept"
-    when 12
-      "the horse and the hound and the horn that belonged to"
-    else
-      "the #{noun(number)} that #{verb(number)}"
-    end
+    "the #{noun(number)} that #{verb(number)}"
   end
 
   def noun(number)
-    nouns = ["house", "malt"]
+    nouns = ["house", "malt", "rat", "cat", "dog", "cow with the crumpled horn", 
+              "maiden all forlorn", "man all tattered and torn", "priest all shaven and shorn",
+              "rooster that crowed in the morn", "farmer sowing his corn", "horse and the hound and the horn"]
+
     nouns[number-1]
   end
 
   def verb(number)
-    verbs = ["Jack built", "lay in"]
+    verbs = ["Jack built", "lay in", "ate", "killed", "worried", "tossed", "milked", 
+              "kissed", "married", "woke", "kept", "belonged to"]
+
     verbs[number-1]
   end
-  
 
   def recite
     (1..12).each.map {|n| line(n)}.join("\n")
