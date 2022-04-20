@@ -1,15 +1,12 @@
 class House
 
   def line(number)  
-    "This is " + number.downto(1).map {|number| new_noun_and_verb(number)}.join(' ')
+    "This is " + number.downto(1).map {|number| new_noun_and_verb(number)}.join(' ') + ".\n"
   end
 
   def new_noun_and_verb(number)
     case number
-    when 1
-      "the #{noun(number)} that Jack built.\n"
-    when 2
-      "the #{noun(number)} that lay in"
+    
     when 3
       "the rat that ate"
     when 4
@@ -30,12 +27,19 @@ class House
       "the farmer sowing his corn that kept"
     when 12
       "the horse and the hound and the horn that belonged to"
+    else
+      "the #{noun(number)} that #{verb(number)}"
     end
   end
 
   def noun(number)
     nouns = ["house", "malt"]
     nouns[number-1]
+  end
+
+  def verb(number)
+    verbs = ["Jack built", "lay in"]
+    verbs[number-1]
   end
   
 
