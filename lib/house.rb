@@ -9,7 +9,7 @@ class House
     when 1
       "the #{noun(number)} that Jack built.\n"
     when 2
-      "the malt that lay in"
+      "the #{noun(number)} that lay in"
     when 3
       "the rat that ate"
     when 4
@@ -34,7 +34,8 @@ class House
   end
 
   def noun(number)
-    "house"
+    nouns = ["house", "malt"]
+    nouns[number-1]
   end
   
 
