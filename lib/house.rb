@@ -1,7 +1,11 @@
 class House
 
+  def article
+    "This is "
+  end
+
   def line(number)  
-    "This is " + number.downto(1).map {|number| noun_and_verb(number)}.join(' ') + ".\n"
+    article + number.downto(1).map {|number| noun_and_verb(number)}.join(' ') + ".\n"
   end
 
   def noun_and_verb(number)
