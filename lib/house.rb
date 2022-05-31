@@ -32,3 +32,9 @@ class House
   end
 
 end
+
+class PirateHouse < House
+  def article
+    "Thar be "
+  end
+end
