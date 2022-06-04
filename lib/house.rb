@@ -1,11 +1,21 @@
 class House
 
+  attr_accessor :clause
+
+  def initialize
+    @clause = Clause.new
+  end
+
+  def shuffle
+    clause.clause_order = @clause.shuffled_order
+  end
+
   def article
     "This is "
   end
 
   def line(number)  
-    article + number.downto(1).map {|number| Clause.new(number).noun_and_verb}.join(' ') + ".\n"
+    article + number.downto(1).map {|number| clause.noun_and_verb(number)}.join(' ') + ".\n"
   end
 
   def recite
@@ -16,12 +26,23 @@ end
 
 class Clause
 
-  def initialize(number)
-    @number = number
+  attr_accessor :clause_order
+  
+  def initialize(clause_order = [1,2,3,4,5,6,7,8,9,10,11,12])
+    @clause_order = clause_order
   end
 
-  def noun_and_verb()
-    "the #{noun(@number)} that #{verb(@number)}"
+  def clause_order_for(number)
+    clause_order[number-1]
+  end
+
+  def shuffled_order
+    [1] + @clause_order[1..@clause_order.length-1].shuffle
+  end
+
+  def noun_and_verb(number)
+    index = clause_order_for(number)
+    "the #{noun(index)} that #{verb(index)}"
   end
 
   def noun(number)

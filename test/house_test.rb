@@ -133,4 +133,13 @@ Thar be the horse and the hound and the horn that belonged to the farmer sowing 
     assert_equal expected, PirateHouse.new.recite
   end
 
+  def test_shuffle_clauses
+    house = House.new
+    unshuffled_lyrics = house.line(12)
+    house.shuffle
+    shuffled_lyics = house.line(12)
+    assert_equal unshuffled_lyrics.length, shuffled_lyics.length
+    refute_equal unshuffled_lyrics, shuffled_lyics
+  end
+
 end
