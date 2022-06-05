@@ -7,7 +7,7 @@ class House
   end
 
   def shuffle
-    clause.clause_order = @clause.shuffled_order
+    clause.clause_order = clause.shuffled_order
   end
 
   def article
@@ -32,16 +32,16 @@ class Clause
     @clause_order = clause_order
   end
 
-  def clause_order_for(number)
+  def clause_number_for(number)
     clause_order[number-1]
   end
 
   def shuffled_order
-    [1] + @clause_order[1..@clause_order.length-1].shuffle
+    [1] + @clause_order.drop(1).shuffle
   end
 
   def noun_and_verb(number)
-    index = clause_order_for(number)
+    index = clause_number_for(number)
     "the #{noun(index)} that #{verb(index)}"
   end
 
@@ -56,7 +56,7 @@ class Clause
   def verb(number)
     verbs = ["Jack built", "lay in", "ate", "killed", "worried", "tossed", "milked", 
               "kissed", "married", "woke", "kept", "belonged to"]
-
+    
     verbs[number-1]
   end
 
