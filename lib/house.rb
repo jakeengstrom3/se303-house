@@ -41,15 +41,15 @@ class Clause
     @verb_order = unshuffled_order
   end
 
-  def clause_number_for(number)
+  def clause_index_for(number)
     clause_order[number-1]
   end
 
-  def noun_number_for(number)
+  def noun_index_for(number)
     noun_order[number-1]
   end
 
-  def verb_number_for(number)
+  def verb_index_for(number)
     verb_order[number-1]
   end
 
@@ -62,12 +62,12 @@ class Clause
   end
 
   def noun_and_verb(number)
-    index = clause_number_for(number)
+    index = clause_index_for(number)
     "the #{noun(index)} that #{verb(index)}"
   end
 
   def noun(number)
-    index = noun_number_for(number)
+    index = noun_index_for(number)
     nouns = ["house", "malt", "rat", "cat", "dog", "cow with the crumpled horn", 
               "maiden all forlorn", "man all tattered and torn", "priest all shaven and shorn", 
               "rooster that crowed in the morn", "farmer sowing his corn", "horse and the hound and the horn"]
@@ -76,7 +76,7 @@ class Clause
   end
 
   def verb(number)
-    index = verb_number_for(number) 
+    index = verb_index_for(number) 
     verbs = ["Jack built", "lay in", "ate", "killed", "worried", "tossed", "milked", 
               "kissed", "married", "woke", "kept", "belonged to"]
     
